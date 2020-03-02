@@ -19,7 +19,7 @@ $forAddress = [$street, $home, $part, $appt, $floor];
 $address = implode(', ', $forAddress);
 
 //Регистрация или "авторизация" пользователя по email.
-if ($email && $name && $phone) {
+if ($email) {
     $query = $pdo->prepare('SELECT id FROM users WHERE email = :email');
     $query->execute(['email' => $email]);
     $result = $query->fetch(PDO::FETCH_UNIQUE);
