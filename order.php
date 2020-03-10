@@ -1,6 +1,7 @@
 <?php
 
 require_once('config.php');
+require_once 'vendor/autoload.php';
 
 //Получение данных из формы заказа.
 $email = trim(htmlspecialchars($_POST['email']));
@@ -41,8 +42,8 @@ if ($userId) {
     echo '<b>Спасибо за заказ!</b>';
 }
 
-//Письмо или запись в файл.
 if ($orderId) {
+    //Запись в файл.
     $query = $pdo->prepare('SELECT COUNT(*) FROM orders WHERE user_id = :user_id');
     $query->execute(['user_id' => $userId]);
     $orderCount = (int)$query->fetch(PDO::FETCH_COLUMN);
@@ -63,4 +64,18 @@ if ($orderId) {
     }
     $fileName = $dirName . '/order_' . $orderId . '.txt';
     file_put_contents($fileName, implode('', $note));
+
+    //Отправка письма.
+    $transport = (new Swift_SmtpTransport('smtp.mail.ru', 465, 'ssl'))
+        ->setUsername('forswiftmailer2020@mail.ru')
+        ->setPassword('forswift1978');
+
+    $mailer = new Swift_Mailer($transport);
+
+    $message = (new Swift_Message("Ваш заказ №{$orderId}"))
+        ->setFrom(['forswiftmailer2020@mail.ru' => 'Mr. Burger'])
+        ->setTo([$email])
+        ->setBody(implode('', $note));
+
+    $mailer->send($message);
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 01 2020 г., 22:00
+-- Время создания: Мар 10 2020 г., 23:06
 -- Версия сервера: 5.6.43
 -- Версия PHP: 7.3.9
 
@@ -46,7 +46,9 @@ INSERT INTO `orders` (`id`, `user_id`, `address`, `comment`, `payment`, `callbac
 (2, 2, 'ул. Королёва, дом 12, корпус , кв. 55, этаж 3', 'Побыстрей пожалуйста.', 'Нет', 'Нет'),
 (3, 3, 'ул. Московская, дом 219, корпус , кв. 6, этаж ', 'Код от подъезда: 1234', 'Да', 'Да'),
 (4, 3, 'ул. Курыжова, дом 17, корпус А, кв. 8, этаж 2', 'Нахожусь в гостях.', 'Да', 'Нет'),
-(5, 2, 'ул. Королёва, дом 12, корпус , кв. 55, этаж 3', 'Понравилось, заказываю повторно!', 'Да', 'Нет');
+(5, 2, 'ул. Королёва, дом 12, корпус , кв. 55, этаж 3', 'Понравилось, заказываю повторно!', 'Да', 'Нет'),
+(6, 4, 'ул. Якова, дом 41, корпус Б, кв. 14, этаж 5', 'Тестирование SwiftMailer.', 'Да', 'Нет'),
+(7, 4, 'ул. Якова, дом 41, корпус Б, кв. 14, этаж 5', 'Тестирование SwiftMailer.', 'Да', 'Нет');
 
 -- --------------------------------------------------------
 
@@ -68,7 +70,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `name`, `phone`) VALUES
 (1, 'aleks@mail.ru', 'Алексей', '+7 (111) 111 11 11'),
 (2, 'ivan@mail.ru', 'Иван', '+7 (222) 222 22 22'),
-(3, 'petr@mail.ru', 'Пётр', '+7 (333) 333 33 33');
+(3, 'petr@mail.ru', 'Пётр', '+7 (333) 333 33 33'),
+(4, 'forswiftmailer2020@mail.ru', 'SwiftMailer', '+7 (666) 666 66 66');
 
 --
 -- Индексы сохранённых таблиц
@@ -94,13 +97,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

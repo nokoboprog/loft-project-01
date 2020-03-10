@@ -1,0 +1,14 @@
+{
+    "name": "nokobo/loft-project-01",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kurmanbek Nurmatov",
+            "email": "nokobo.prog@gmail.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "^6.2"
+    }
+}
