@@ -1,0 +1,43 @@
+<b style="color: brown">Список всех пользователей:</b><br><br>
+<table style="border: 1px solid #000">
+    <tr>
+        <th style='border: 1px solid #000'>№</th>
+        <th style='border: 1px solid #000'>Имя</th>
+        <th style='border: 1px solid #000'>Email</th>
+        <th style='border: 1px solid #000'>Телефон</th>
+    </tr>
+    {% for user in users %}
+        <tr>
+            <td style='border: 1px solid #000'>{{ user.id }}</td>
+            <td style='border: 1px solid #000'>{{ user.name }}</td>
+            <td style='border: 1px solid #000'>{{ user.email }}</td>
+            <td style='border: 1px solid #000'>{{ user.phone }}</td>
+        </tr>
+    {% endfor %}
+</table><br><br>
+
+<b style="color: brown">Список всех заказов:</b><br><br>
+<table style="border: 1px solid #000">
+    <tr>
+        <th style='border: 1px solid #000'>№</th>
+        <th style='border: 1px solid #000'>Имя</th>
+        <th style='border: 1px solid #000'>Email</th>
+        <th style='border: 1px solid #000'>Телефон</th>
+        <th style='border: 1px solid #000'>Адрес</th>
+        <th style='border: 1px solid #000'>Комментарий</th>
+        <th style='border: 1px solid #000'>Потребуется сдача/<br>Оплата по карте</th>
+        <th style='border: 1px solid #000'>Перезвонить</th>
+    </tr>
+    {% for order in orders %}
+        <tr>
+            <td style='border: 1px solid #000'>{{ order.id }}</td>
+            <td style='border: 1px solid #000'>{{ order.name }}</td>
+            <td style='border: 1px solid #000'>{{ order.email }}</td>
+            <td style='border: 1px solid #000'>{{ order.phone }}</td>
+            <td style='border: 1px solid #000'>{{ order.address }}</td>
+            <td style='border: 1px solid #000'>{{ order.comment }}</td>
+            <td style='border: 1px solid #000'>{{ order.payment }}</td>
+            <td style='border: 1px solid #000'>{{ order.callback }}</td>
+        </tr>
+    {% endfor %}
+</table>
